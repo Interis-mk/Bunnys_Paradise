@@ -24,7 +24,7 @@ public class TopDownMover : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
-        moveAction = new InputAction("Move", InputActionType.Value, expectedControlType: "Vector2");
+        moveAction = new InputAction("Move", expectedControlType: "Vector2");
         moveAction.AddCompositeBinding("2DVector")
             .With("Up", "<Keyboard>/w")
             .With("Down", "<Keyboard>/s")
@@ -72,33 +72,28 @@ public class TopDownMover : MonoBehaviour
 
     private void UpdateAnimatorDirection(Vector2 dir)
     {
-        // Only update when moving
         if (dir == Vector2.zero)
             return;
 
-        // Reset
         animator.SetBool(IsUpID, false);
         animator.SetBool(IsDownID, false);
         animator.SetBool(IsLeftID, false);
-
-        // Pick primary axis (simple 4-direction)
+        
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            // Horizontal
             animator.SetBool(IsLeftID, true); 
             if (spriteRenderer != null)
-                spriteRenderer.flipX = dir.x > 0f; // flip when moving right
+                spriteRenderer.flipX = dir.x > 0f; 
         }
         else
         {
-            // Vertical
             if (dir.y > 0f)
                 animator.SetBool(IsUpID, true);
             else
                 animator.SetBool(IsDownID, true);
 
             if (spriteRenderer != null)
-                spriteRenderer.flipX = false; // ensure consistent vertical frame
+                spriteRenderer.flipX = false; 
         }
     }
 }
