@@ -10,12 +10,10 @@ public class shovel : UpgradeBase{
     
     [SerializeField]private float multiplier;
     [SerializeField]private float baseClick;
-    [SerializeField]private int amount;
 
     private void Update()
     {
         addedMultiplier = multiplier;
         addedBaseClick = baseClick;
-        amount = amountOwned;
     }
 }
