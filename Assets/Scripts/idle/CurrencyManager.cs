@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
 
 public class CurrencyManager : MonoBehaviour
 {
-    private float currency = 0;
-    
-    private void Start()
+    [SerializeField]private float currency = 0;
+    public static CurrencyManager instance;
+    [SerializeField]private TextMeshProUGUI currencyText;
+
+    private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        instance = this;
     }
-    
+
+    private void Update()
+    {
+        currencyText.text = "Currency: " + currency.ToString();
+    }
+
     public void AddCurrency(float amount)
     {
         currency += amount;

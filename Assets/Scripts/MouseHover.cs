@@ -16,7 +16,6 @@ public class MouseHover : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint((Vector2)Input.mousePosition), mainCamera.transform.forward, mouseLayer);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             if (Input.GetMouseButtonDown(0))
             {
                 if(hit.collider.gameObject.TryGetComponent(out ClickerBase clickerBase))
@@ -24,7 +23,6 @@ public class MouseHover : MonoBehaviour
                     clickerBase.onClick.Invoke();
                 }
             }
-                
         }
     }
 }

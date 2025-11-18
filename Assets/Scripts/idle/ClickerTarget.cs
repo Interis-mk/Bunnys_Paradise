@@ -12,12 +12,11 @@ public class ClickerBase : MonoBehaviour
 
     private void Start()
     {
-        onClick = new UnityEvent();
         onClick.AddListener(OnEventTriggered);
     }
     
     void OnEventTriggered()
     {
-        Debug.Log("Event Triggered");
+        return;
     }
 }
