@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 [RequireComponent(typeof(Animator))]
-public class Carrot : MonoBehaviour
+public class Carrot : MonoBehaviour,  IClickable
 {
-    float multiplier = 1;
-    float baseamount = 1;
+    public float multiplier = 1;
+    public float baseAmount = 1;
     Animator animator;
 
     private void Start()
@@ -14,7 +13,7 @@ public class Carrot : MonoBehaviour
 
     public void IsClicked()
     {
-        CurrencyManager.instance.AddCurrency(baseamount * multiplier);
+        CurrencyManager.instance.AddCurrency(baseAmount * multiplier);
     }
     
 }
