@@ -9,20 +9,18 @@ using UnityEngine.Events;
 
 public class ClickerBase : MonoBehaviour
 {
-    [SerializeField]private float multiplier = 1;
-    [SerializeField]private float giveAmount = 1;
     private CircleCollider2D collider;
     private Animator animator;
-    private UnityEvent onClick;
+    public UnityEvent onClick;
 
     private void Start()
     {
         onClick = new UnityEvent();
-        onClick.AddListener(Clicked);
+        onClick.AddListener(OnEventTriggered);
     }
-
-    public void Clicked()
+    
+    void OnEventTriggered()
     {
-        animator.SetTrigger("clicked");
+        Debug.Log("Event Triggered");
     }
 }

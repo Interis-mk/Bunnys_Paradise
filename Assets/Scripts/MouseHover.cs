@@ -19,7 +19,10 @@ public class MouseHover : MonoBehaviour
             Debug.Log(hit.collider.name);
             if (Input.GetMouseButtonDown(0))
             {
-                if(hit.collider.gameObject.TryGetComponent<>(out MouseHover mouseHover))
+                if(hit.collider.gameObject.TryGetComponent<ClickerBase>(out ClickerBase clickerBase))
+                {
+                    clickerBase.onClick.Invoke();
+                }
             }
                 
         }
