@@ -16,7 +16,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Update()
     {
-        currencyText.text = "Currency: " + currency.ToString();
+        currencyText.text = "Carrots: " + currency.ToString();
     }
 
     public void TakeCurrency(float amount)

@@ -23,8 +23,8 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
     {
         if (cost * (amountOwned+1) <= CurrencyManager.instance.currency)
         {
-            OnBuyIncrement();
             CurrencyManager.instance.TakeCurrency(cost *  (amountOwned+1));
+            OnBuyIncrement();
         }
     }
 }
