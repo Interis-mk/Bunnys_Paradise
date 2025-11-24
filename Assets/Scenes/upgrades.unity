@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4c8070866df3545be38eaa2042579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  multiplier: 1
   baseClick: 1
 --- !u!1 &1308084057
 GameObject:
@@ -1285,12 +1285,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565964876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b07737c99a44ff78e325a2d91afbb67, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d6e1d3ea3897ac4e8797af77a2c50fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAmount: 1
-  multiplier: 1
-  amountOwned: 0
+  BaseAmount: 1
+  Multiplier: 1
+  AmountOwned: 0
+  RepeatRate: 1
 --- !u!1 &1587719371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,14 +1697,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1565964878}
-        m_TargetAssemblyTypeName: GeneratorBase, Assembly-CSharp
-        m_MethodName: OnBuyIncrement
-        m_Mode: 1
+      - m_Target: {fileID: 2097486261}
+        m_TargetAssemblyTypeName: Fertiliser, Assembly-CSharp
+        m_MethodName: OnBuy
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1720,9 +1721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6e1d3ea3897ac4e8797af77a2c50fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
-  baseClick: 0
-  generator: {fileID: 1565964876}
+  BaseAmount: 1
+  Multiplier: 1
+  AmountOwned: 0
+  RepeatRate: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

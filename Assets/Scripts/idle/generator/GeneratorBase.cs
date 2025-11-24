@@ -1,34 +1,40 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class GeneratorBase : MonoBehaviour
+public abstract class GeneratorBase : MonoBehaviour
 {
-    public float baseAmount;
-    public float multiplier;
-
-    public int amountOwned;
+    public virtual float baseAmount { get; set; }
+    public virtual float multiplier{ get; set; }
+    public virtual int amountOwned{ get; set; }
+    public virtual float repeatRate{get; set; }
     
-    public void StartGenerating()
+    public virtual void StartGenerating()
     {
-        InvokeRepeating(nameof(Generate), 1, 1);
-    }
-    
-    public void OnBuyIncrement()
-    {
-        amountOwned += 1;
+        StartCoroutine(GenerateCoroutine());
     }
 
-    public void OnBuy(int cost)
+    public virtual void OnBuy(int cost)
     {
         if (cost * (amountOwned+1) <= CurrencyManager.instance.currency)
         {
             CurrencyManager.instance.TakeCurrency(cost *  (amountOwned+1));
-            OnBuyIncrement();
+            amountOwned += 1;
+            StartGenerating();
         }
     }
     
 
-    public void Generate()
+    public virtual void Generate()
     {
-        CurrencyManager.instance.AddCurrency(baseAmount * multiplier);
+        CurrencyManager.instance.AddCurrency((baseAmount * amountOwned) * multiplier);
+    }
+    
+    public virtual IEnumerator GenerateCoroutine()
+    {
+        while (true)
+        {
+            Generate();
+            yield return new WaitForSeconds(repeatRate);
+        }
     }
 }

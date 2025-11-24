@@ -9,7 +9,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
 
     public virtual void Start()
     {
-        clickObject = FindObjectOfType<Carrot>();
+        clickObject = FindAnyObjectByType(typeof(Carrot)) as Carrot;
     }
 
     public virtual void OnBuyIncrement()

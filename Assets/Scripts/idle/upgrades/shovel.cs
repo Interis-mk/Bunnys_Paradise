@@ -12,8 +12,9 @@ public class shovel : UpgradeBase
     [SerializeField]private float multiplier;
     [SerializeField]private float baseClick;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         addedMultiplier = multiplier;
         addedBaseClick = baseClick;
     }

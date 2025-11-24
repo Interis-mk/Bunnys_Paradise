@@ -2,33 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fertiliser : UpgradeBase
+public class Fertiliser : GeneratorBase
 {
-    public override float addedMultiplier{get;set;}
-    public override float addedBaseClick{get;set;}
+    public override float baseAmount{get;set;}
+    public override float multiplier{get;set;}
     public override int amountOwned{get;set;}
     
-    [SerializeField]private float multiplier;
-    [SerializeField]private float baseClick;
+    [SerializeField] float BaseAmount;
+    [SerializeField] float Multiplier;
+    [SerializeField] int AmountOwned;
+    [SerializeField] float RepeatRate;
     
-    // Prefab
-    [SerializeField]private GameObject generator;
-
-    private void Update()
+    private void Start()
     {
-        addedMultiplier = multiplier;
-        addedBaseClick = baseClick;
-    }
-    
-    public override void OnBuy(int cost)
-    {
-        if (cost * (amountOwned+1) <= CurrencyManager.instance.currency)
-        {
-            CurrencyManager.instance.TakeCurrency(cost *  (amountOwned+1));
-            OnBuyIncrement();
-
-            Instantiate(generator, transform.position, transform.rotation);
-        }
+        baseAmount = BaseAmount;
+        multiplier = Multiplier;
+        amountOwned = AmountOwned;
+        repeatRate = RepeatRate;
     }
     
 }
