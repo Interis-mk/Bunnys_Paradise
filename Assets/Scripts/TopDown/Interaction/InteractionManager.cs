@@ -39,6 +39,7 @@ public class InteractionManager : MonoBehaviour
     
     private void HandleInput()
     {
+        // todo use correct input system
         // Keyboard interaction
         if (Input.GetKeyDown(interactKey))
         {
