@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
 public class AutoCurrencyGenerator : MonoBehaviour
-{
-    [SerializeField] private float CurrencyPerSecond = 1;
+{ 
+    // Runtime variables
     private float timer = 0;
+    
+    // Dependencies
     private CurrencyManager currencyManager;
     
     private void Start()
@@ -17,7 +19,7 @@ public class AutoCurrencyGenerator : MonoBehaviour
         if (timer >= 1)
         {
             timer = 0;
-            currencyManager.AddCurrency(CurrencyPerSecond);
+            currencyManager.AddCurrency(1);
         }
     }
 }
