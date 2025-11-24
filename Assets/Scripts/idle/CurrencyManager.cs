@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 public class CurrencyManager : MonoBehaviour
 {
-    [SerializeField]private float currency = 0;
+    public float currency = 0;
     public static CurrencyManager instance;
     [SerializeField]private TextMeshProUGUI currencyText;
 
@@ -16,7 +16,12 @@ public class CurrencyManager : MonoBehaviour
 
     private void Update()
     {
-        currencyText.text = "Currency: " + currency.ToString();
+        currencyText.text = "Carrots: " + currency.ToString();
+    }
+
+    public void TakeCurrency(float amount)
+    {
+        currency -= amount;
     }
 
     public void AddCurrency(float amount)
