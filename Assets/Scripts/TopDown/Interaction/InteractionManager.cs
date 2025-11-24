@@ -71,17 +71,13 @@ public class InteractionManager : MonoBehaviour
     {
         Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-        
-        if (hit.collider != null)
-        {
-            InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
+
+        if (!hit.collider) return;
+        InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
             
-            // Check if the clicked object is in range and can be interacted with
-            if (interactable != null && nearbyInteractables.Contains(interactable) && interactable.CanInteract())
-            {
-                interactable.Interact();
-            }
-        }
+        // Check if the clicked object is in range and can be interacted with
+        if (!interactable || !nearbyInteractables.Contains(interactable) || !interactable.CanInteract()) return;
+        interactable.Interact();
     }
     
     private InteractableObject GetClosestInteractable()

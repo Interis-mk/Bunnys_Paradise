@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Interface that all interactable objects must implement
@@ -19,4 +20,9 @@ public interface IInteractable
     /// Whether this object can currently be interacted with
     /// </summary>
     bool CanInteract();
+    
+    /// <summary>
+    /// The UnityEvent to invoke when interaction occurs 
+    /// </summary>
+    UnityEvent OnInteract { get; set;}
 }

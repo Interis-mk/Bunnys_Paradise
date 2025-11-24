@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 
 [RequireComponent(typeof(Collider2D))]
@@ -20,7 +21,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private Transform playerTransform;
     private GameObject interactionPromptObject;
     private SpriteRenderer promptSpriteRenderer;
-    
+    public UnityEvent OnInteract{ get; set; }
+
     protected virtual void Start()
     {
         Collider2D col = GetComponent<Collider2D>();
@@ -98,7 +100,10 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         return isInteractable;
     }
+
     
+
+
     public void SetInteractable(bool value)
     {
         isInteractable = value;
