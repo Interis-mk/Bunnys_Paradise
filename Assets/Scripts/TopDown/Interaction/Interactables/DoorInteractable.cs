@@ -23,6 +23,7 @@ public class DoorInteractable : InteractableObject
     protected override void Start()
     {
         base.Start();
+        // OnInteract.AddListener(() => Debug.Log("Door interacted with"));
         audioSource = GetComponent<AudioSource>();
     }
     
