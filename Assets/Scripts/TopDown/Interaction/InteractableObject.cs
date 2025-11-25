@@ -8,6 +8,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public string interactionPrompt = "Interact";
     public bool isInteractable = true;
     public float interactionRadius = 2f;
+    public UnityEvent OnInteract;
 
     [Header("Visual Feedback")]
     public Sprite interactionSprite;
@@ -20,7 +21,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     protected Transform playerTransform;
     protected GameObject interactionPromptObject;
     protected SpriteRenderer promptSpriteRenderer;
-    public UnityEvent OnInteract { get; set; }
 
     protected virtual void Start()
     {

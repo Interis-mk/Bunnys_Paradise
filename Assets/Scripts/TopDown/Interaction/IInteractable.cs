@@ -19,5 +19,5 @@ public interface IInteractable
     /// <summary>
     /// The UnityEvent to invoke when interaction occurs 
     /// </summary>
-    UnityEvent OnInteract { get; set;}
+    //UnityEvent OnInteract { get; set;}
 }
