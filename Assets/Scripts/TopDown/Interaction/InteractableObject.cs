@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings")]
-    public string interactionPrompt = "Interact";
     public bool isInteractable = true;
     public float interactionRadius = 2f;
     public UnityEvent OnInteract;
@@ -18,7 +17,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public string sortingLayerName = "UI";
 
     protected bool playerInRange = false;
-    protected Transform playerTransform;
+    //protected Transform playerTransform;
     protected GameObject interactionPromptObject;
     protected SpriteRenderer promptSpriteRenderer;
 
@@ -63,7 +62,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (other.CompareTag("Player") && CanInteract())
         {
             playerInRange = true;
-            playerTransform = other.transform;
+            //playerTransform = other.transform;
             ShowInteractionUI();
             InteractionManager.Instance?.RegisterInteractable(this);
         }
@@ -74,7 +73,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            playerTransform = null;
+            //playerTransform = null;
             HideInteractionUI();
             InteractionManager.Instance?.UnregisterInteractable(this);
         }
@@ -82,6 +81,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
+        OnInteract?.Invoke();
         Debug.Log($"Interacted with {gameObject.name}");
     }
     
@@ -112,13 +112,11 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             interactionPromptObject.SetActive(false);
     }
 
-    protected virtual void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
-    }
-
-    protected virtual void OnEventTriggerd()
-    {
+        // this is showing nothing in editor, i don't get why
+        Gizmos.DrawWireSphere(transform.position, 10/*interactionRadius*/);
+        Debug.Log("Gizmo Drawn");
     }
 }
