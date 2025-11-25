@@ -5,16 +5,16 @@ using UnityEngine.Events;
 public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings")]
-    public virtual string interactionPrompt = "Interact";
-    public virtual bool isInteractable = true;
-    public virtual float interactionRadius = 2f;
+    public string interactionPrompt = "Interact";
+    public bool isInteractable = true;
+    public float interactionRadius = 2f;
 
     [Header("Visual Feedback")]
-    public virtual Sprite interactionSprite;
-    public virtual Vector3 spriteOffset = new Vector3(0, 1, 0);
-    public virtual float spriteScale = 0.5f;
-    public virtual int sortingOrder = 100;
-    public virtual string sortingLayerName = "UI";
+    public Sprite interactionSprite;
+    public Vector3 spriteOffset = new Vector3(0, 1, 0);
+    public float spriteScale = 0.5f;
+    public int sortingOrder = 100;
+    public string sortingLayerName = "UI";
 
     protected bool playerInRange = false;
     protected Transform playerTransform;
@@ -26,7 +26,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     {
         Collider2D col = GetComponent<Collider2D>();
         col.isTrigger = true;
-        OnInteract.AddListener(OnEventTriggerd);
+        //OnInteract.AddListener(OnEventTriggerd);
         CreateInteractionPrompt();
     }
 
@@ -84,12 +84,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     {
         Debug.Log($"Interacted with {gameObject.name}");
     }
-
-    public virtual string GetInteractionPrompt()
-    {
-        return interactionPrompt;
-    }
-
+    
     public virtual bool CanInteract()
     {
         return isInteractable;
