@@ -7,12 +7,12 @@ public class TopDownMover : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Animator animator;
+    //[SerializeField] private Animator animator;
 
     private InputAction moveAction;
     private Vector2 moveValue;
     
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
     
     private static readonly int IsUpID = Animator.StringToHash("IsUp");
     private static readonly int IsDownID = Animator.StringToHash("IsDown");
@@ -22,7 +22,7 @@ public class TopDownMover : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         
         moveAction = new InputAction("Move", expectedControlType: "Vector2");
         moveAction.AddCompositeBinding("2DVector")
@@ -64,13 +64,13 @@ public class TopDownMover : MonoBehaviour
             transform.Translate(moveValue * (speed * Time.fixedDeltaTime));
         }
 
-        if (animator != null)
-        {
-            UpdateAnimatorDirection(moveValue);
-        }
+        //if (animator != null)
+        //{
+        //    UpdateAnimatorDirection(moveValue);
+        //}
     }
 
-    private void UpdateAnimatorDirection(Vector2 dir)
+    /*private void UpdateAnimatorDirection(Vector2 dir)
     {
         if (dir == Vector2.zero)
             return;
@@ -95,5 +95,5 @@ public class TopDownMover : MonoBehaviour
             if (spriteRenderer != null)
                 spriteRenderer.flipX = false; 
         }
-    }
+    }*/
 }
