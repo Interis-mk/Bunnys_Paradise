@@ -66,7 +66,7 @@ public class TopDownMover : MonoBehaviour
 
         if (animator != null)
         {
-            UpdateAnimatorDirection(moveValue);
+           // UpdateAnimatorDirection(moveValue);
         }
     }
 
