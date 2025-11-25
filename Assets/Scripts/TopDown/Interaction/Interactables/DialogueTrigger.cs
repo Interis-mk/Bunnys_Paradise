@@ -34,10 +34,7 @@ public class DialogueTrigger : InteractableObject
         }
     }
     
-    public override string GetInteractionPrompt()
-    {
-        return $"Talk to {npcName}";
-    }
+   
     
     public override bool CanInteract()
     {

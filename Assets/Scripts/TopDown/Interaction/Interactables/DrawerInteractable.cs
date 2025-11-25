@@ -77,9 +77,4 @@ public class DrawerInteractable : InteractableObject
             }
         }
     }
-    
-    public override string GetInteractionPrompt()
-    {
-        return isOpen ? "Close Drawer" : "Open Drawer";
-    }
 }

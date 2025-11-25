@@ -12,11 +12,6 @@ public interface IInteractable
     void Interact();
     
     /// <summary>
-    /// The text to display in the interaction prompt (optional)
-    /// </summary>
-    string GetInteractionPrompt();
-    
-    /// <summary>
     /// Whether this object can currently be interacted with
     /// </summary>
     bool CanInteract();
@@ -24,5 +19,5 @@ public interface IInteractable
     /// <summary>
     /// The UnityEvent to invoke when interaction occurs 
     /// </summary>
-    UnityEvent OnInteract { get; set;}
+    //UnityEvent OnInteract { get; set;}
 }

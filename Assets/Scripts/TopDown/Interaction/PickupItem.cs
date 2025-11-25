@@ -21,9 +21,4 @@ public class PickupItem : InteractableObject
             Destroy(gameObject);
         }
     }
-    
-    public override string GetInteractionPrompt()
-    {
-        return $"Pick up {itemName}";
-    }
 }
