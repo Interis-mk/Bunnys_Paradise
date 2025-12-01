@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Animator))]
 
 public class ClickerBase : MonoBehaviour
