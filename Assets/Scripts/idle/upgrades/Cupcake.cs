@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shovel : UpgradeBase
+public class Cupcake : UpgradeBase
 {
+
     public override float addedMultiplier{get;set;}
     public override float addedBaseClick{get;set;}
     public override float amountOwned{get;set;}
