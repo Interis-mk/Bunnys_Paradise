@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandCultivator : UpgradeBase
+public class EasterEgg : UpgradeBase
 {
     public override float addedMultiplier{get;set;}
     public override float addedBaseClick{get;set;}
