@@ -7,7 +7,7 @@ public class Cupcake : UpgradeBase
 
     public override float addedMultiplier{get;set;}
     public override float addedBaseClick{get;set;}
-    public override int amountOwned{get;set;}
+    public override float amountOwned{get;set;}
     
     [SerializeField]private float multiplier;
     [SerializeField]private float baseClick;
