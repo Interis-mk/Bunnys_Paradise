@@ -1,27 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(Collider2D))]
 public class TopDownMover : MonoBehaviour
 {
     [Header("Movement")] [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D rb;
-    //[SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;
 
     private InputAction moveAction;
     private Vector2 moveValue;
 
-    //private SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
-    private static readonly int IsUpID = Animator.StringToHash("IsUp");
-    private static readonly int IsDownID = Animator.StringToHash("IsDown");
-    private static readonly int IsLeftID = Animator.StringToHash("IsLeft");
+    private static readonly int IsUpID = Animator.StringToHash("Up");
+    private static readonly int IsDownID = Animator.StringToHash("Down");
+    private static readonly int IsSideID = Animator.StringToHash("Side");
 
     private void Awake()
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        
 
         moveAction = new InputAction("Move", expectedControlType: "Vector2");
         moveAction.AddCompositeBinding("2DVector")
@@ -67,36 +68,41 @@ public class TopDownMover : MonoBehaviour
             transform.Translate(moveValue * (speed * Time.fixedDeltaTime));
         }
 
-        //if (animator != null)
-        //{
-        //    UpdateAnimatorDirection(moveValue);
-        //}
+        if (animator != null)
+        {
+            UpdateAnimatorDirection(moveValue);
+        }
     }
 
-    // private void UpdateAnimatorDirection(Vector2 dir)
-    // {
-    //     if (dir == Vector2.zero)
-    //         return;
-    //
-    //     animator.SetBool(IsUpID, false);
-    //     animator.SetBool(IsDownID, false);
-    //     animator.SetBool(IsLeftID, false);
-    //
-    //     if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
-    //     {
-    //         animator.SetBool(IsLeftID, true);
-    //         if (spriteRenderer != null)
-    //             spriteRenderer.flipX = dir.x > 0f;
-    //     }
-    //     else
-    //     {
-    //         if (dir.y > 0f)
-    //             animator.SetBool(IsUpID, true);
-    //         else
-    //             animator.SetBool(IsDownID, true);
-    //
-    //         if (spriteRenderer != null)
-    //             spriteRenderer.flipX = false;
-    //     }
-    // }
+     private void UpdateAnimatorDirection(Vector2 dir)
+     {
+         if (dir == Vector2.zero)
+             return;
+    
+         animator.SetBool(IsUpID, false);
+         animator.SetBool(IsDownID, false);
+         animator.SetBool(IsSideID, false);
+    
+         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+         {
+             animator.SetBool(IsSideID, true);
+             if (dir.x < 0)
+             {
+                 spriteRenderer.flipX = true;
+             } else if (dir.x > 0)
+             {
+                 spriteRenderer.flipX = false;
+             }
+         }
+         else
+         {
+             if (dir.y > 0f)
+                 animator.SetBool(IsUpID, true);
+             else
+                 animator.SetBool(IsDownID, true);
+    
+             if (spriteRenderer != null)
+                 spriteRenderer.flipX = false;
+         }
+     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trowel : UpgradeBase
+public class Ribbon : UpgradeBase
 {
     public override float addedMultiplier{get;set;}
     public override float addedBaseClick{get;set;}
