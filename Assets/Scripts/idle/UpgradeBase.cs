@@ -4,7 +4,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
 {
     public virtual float addedMultiplier{get;set;}
     public virtual float addedBaseClick{get;set;}
-    public virtual int amountOwned{get;set;}
+    public virtual float amountOwned{get;set;}
     public Carrot clickObject{get;set;}
 
     public virtual void Start()
@@ -21,7 +21,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
 
     public virtual void OnBuy(int cost)
     {
-        if (cost * (amountOwned+1) <= CurrencyManager.instance.currency)
+        if (cost*Mathf.Pow(1.15f, amountOwned) <= CurrencyManager.instance.currency)
         {
             CurrencyManager.instance.TakeCurrency(cost *  (amountOwned+1));
             OnBuyIncrement();
