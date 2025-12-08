@@ -7,13 +7,13 @@ public class DialogueOnHover : MonoBehaviour
     public GameObject prefab;
     protected GameObject instance;
     
-    private void OnMouseOver()
+    public void StartDialogue()
     { 
         Debug.Log(dialogue);
-       instance = Instantiate(prefab, transform.position, Quaternion.identity);
+       instance = Instantiate(prefab, transform.position, Quaternion.identity, gameObject.transform);
        instance.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
     }
-    private void OnMouseExit()
+    public void StopDialogue()
     {
         Destroy(instance);
         instance = null;
