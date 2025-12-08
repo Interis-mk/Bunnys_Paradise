@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: FloorTile
+  m_Name: BottomRightCornerTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: bff45be2c3f78794383e22a3b0017e39, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb00af888aac2394da479a2aabd1a4a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
