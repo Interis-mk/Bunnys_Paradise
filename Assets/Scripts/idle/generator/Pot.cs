@@ -6,7 +6,7 @@ public class Pot : GeneratorBase
 {
     public override float baseAmount{get;set;}
     public override float multiplier{get;set;}
-    public override int amountOwned{get;set;}
+    public override int generatorAmount{get;set;}
     
     [SerializeField] float BaseAmount;
     [SerializeField] float Multiplier;
@@ -17,7 +17,7 @@ public class Pot : GeneratorBase
     {
         baseAmount = BaseAmount;
         multiplier = Multiplier;
-        amountOwned = AmountOwned;
+        generatorAmount = AmountOwned;
         repeatRate = RepeatRate;
     }
 }
