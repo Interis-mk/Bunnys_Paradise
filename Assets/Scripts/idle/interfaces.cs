@@ -4,7 +4,7 @@ public interface IUpgrade
 {
     public float addedMultiplier{get;set;}
     public float addedBaseClick{get;set;}
-    public int amountOwned{get;set;}
+    public float amountOwned{get;set;}
     
     public Carrot clickObject{get;set;}
     void OnBuyIncrement();

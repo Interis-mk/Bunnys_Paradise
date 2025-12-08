@@ -74,15 +74,6 @@ public class DoorInteractable : InteractableObject
         }
     }
     
-    public override string GetInteractionPrompt()
-    {
-        if (isLocked)
-        {
-            return "Locked";
-        }
-        return isOpen ? "Close" : "Open";
-    }
-    
     public override bool CanInteract()
     {
         return base.CanInteract();
