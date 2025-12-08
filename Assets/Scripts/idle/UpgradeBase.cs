@@ -1,5 +1,6 @@
+using System;
 using UnityEngine;
-
+[RequireComponent(typeof(DialogueOnHover))]
 public abstract class UpgradeBase : MonoBehaviour, IUpgrade
 {
     public virtual float addedMultiplier{get;set;}
@@ -13,7 +14,12 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
     public virtual void Start()
     {
         clickObject = FindAnyObjectByType(typeof(Carrot)) as Carrot;
-        OnHover = GetComponent<DialogueOnHover>();
+        OnHover = gameObject.GetComponent<DialogueOnHover>();
+    }
+
+    public void Update()
+    {
+        OnHover.dialogue = $"ClickPower + {addedBaseClick} " + $"cost : ${currentCost}";
     }
 
     public virtual void OnBuyIncrement()
@@ -21,7 +27,6 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
         clickObject.multiplier += addedMultiplier;
         clickObject.baseAmount += addedBaseClick;
         amountOwned += 1;
-        OnHover.dialogue = $"ClickPower + ${addedBaseClick} " + $"cost : ${currentCost}";
     }
 
     public virtual void OnBuy(int cost)
@@ -29,7 +34,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
         if (cost*Mathf.Pow(1.15f, amountOwned) <= CurrencyManager.instance.currency)
         {
             currentCost = cost * Mathf.Pow(1.15f, amountOwned);
-            CurrencyManager.instance.TakeCurrency(cost *  (amountOwned+1));
+            CurrencyManager.instance.TakeCurrency(currentCost);
             OnBuyIncrement();
         }
     }
