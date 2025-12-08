@@ -12,6 +12,7 @@ public class DialogueOnHover : MonoBehaviour
         Debug.Log(dialogue);
        instance = Instantiate(prefab, transform.position, Quaternion.identity, gameObject.transform);
        instance.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+       
     }
     public void StopDialogue()
     {
