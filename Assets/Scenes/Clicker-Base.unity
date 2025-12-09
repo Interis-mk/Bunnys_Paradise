@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplier: 0
   baseClick: 1
+  basecost: 10
 --- !u!1 &1549721935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2989927501930343662, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
@@ -1814,8 +1815,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 68393308307315093, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 68393308307315093, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 152211987031619314, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: cost
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 152211987031619314, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
@@ -2133,7 +2142,13 @@ PrefabInstance:
       propertyPath: Multiplier
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1745993877590047136, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+    - {fileID: 7771051455708328136, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+    - {fileID: 6371626893016797595, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+    - {fileID: 4017336385956566572, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+    - {fileID: 5974128080977094992, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+    - {fileID: 5693201362874743730, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
