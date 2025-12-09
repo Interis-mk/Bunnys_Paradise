@@ -7,6 +7,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
     public virtual float addedBaseClick{get;set;}
     public virtual float amountOwned{get;set;}
     public virtual float currentCost { get; set; }
+    public virtual float baseCost { get; set; }
     public Carrot clickObject{get;set;}
     public virtual DialogueOnHover OnHover{get;set;}
     public virtual  string tooltips{get;set;}
@@ -19,7 +20,7 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
 
     public void Update()
     {
-        OnHover.dialogue = $"ClickPower + {addedBaseClick} " + $"cost : ${currentCost}";
+        OnHover.dialogue = $"ClickPower + {addedBaseClick} " + $"cost : ${baseCost}";
     }
 
     public virtual void OnBuyIncrement()
@@ -29,13 +30,14 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
         amountOwned += 1;
     }
 
-    public virtual void OnBuy(int cost)
+    public virtual void OnBuy()
     {
-        if (cost*Mathf.Pow(1.15f, amountOwned) <= CurrencyManager.instance.currency)
+        float cost = baseCost * Mathf.Pow(1.15f, amountOwned);
+        if (cost <= CurrencyManager.instance.currency)
         {
-            currentCost = cost * Mathf.Pow(1.15f, amountOwned);
             CurrencyManager.instance.TakeCurrency(currentCost);
             OnBuyIncrement();
+            OnHover.StartDialogue();
         }
     }
 }

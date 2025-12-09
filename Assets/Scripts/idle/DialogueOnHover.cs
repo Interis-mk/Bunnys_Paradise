@@ -10,20 +10,21 @@ public class DialogueOnHover : MonoBehaviour
 
     public void Update()
     {
-        instance.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+        if (instance != null)
+        {
+            instance.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+        }
     }
 
     public void StartDialogue()
-    { 
+    {
         Debug.Log(dialogue);
-       instance = Instantiate(prefab, transform.position, Quaternion.identity, gameObject.transform);
-       
-       
+        instance = Instantiate(prefab, transform.position, Quaternion.identity, gameObject.transform);
     }
+
     public void StopDialogue()
     {
         Destroy(instance);
         instance = null;
     }
-    
 }
