@@ -1827,6 +1827,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 152211987031619314, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 152211987031619314, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
       value: 0
       objectReference: {fileID: 0}
@@ -1845,6 +1849,10 @@ PrefabInstance:
     - target: {fileID: 909533945331764962, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: dialogue
       value: cost
+      objectReference: {fileID: 0}
+    - target: {fileID: 958618879553224551, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 958618879553224551, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
@@ -1875,8 +1883,16 @@ PrefabInstance:
       value: cost
       objectReference: {fileID: 0}
     - target: {fileID: 2286135023907134466, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286135023907134466, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396467234301891903, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2396467234301891903, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier
@@ -1979,6 +1995,10 @@ PrefabInstance:
       value: cost
       objectReference: {fileID: 0}
     - target: {fileID: 3261249532749489530, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261249532749489530, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
       value: 0
       objectReference: {fileID: 0}
@@ -2071,12 +2091,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5284269377398055609, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284269377398055609, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5642628206109196479, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642628206109196479, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142060660255724785, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6142060660255724785, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier
@@ -2111,8 +2143,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8022645423569035886, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022645423569035886, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8125258633106700785, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8125258633106700785, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
@@ -2135,8 +2175,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8773125623603471726, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773125623603471726, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: multiplier
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140907231803292965, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: basecost
+      value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 9140907231803292965, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: Multiplier

@@ -36,6 +36,7 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
         if (cost * (generatorAmount+1) <= CurrencyManager.instance.currency)
         {
             generatorAmount += 1;
+            UpdateDialogue();
             if (!isGenerating)
             {
                 StartGenerating();
