@@ -37,7 +37,6 @@ public abstract class UpgradeBase : MonoBehaviour, IUpgrade
         {
             CurrencyManager.instance.TakeCurrency(currentCost);
             OnBuyIncrement();
-            OnHover.StartDialogue();
         }
     }
 }

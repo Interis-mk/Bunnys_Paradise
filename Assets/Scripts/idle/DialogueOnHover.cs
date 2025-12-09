@@ -24,7 +24,7 @@ public class DialogueOnHover : MonoBehaviour
 
     public void StopDialogue()
     {
-        Destroy(instance);
+        DestroyImmediate(instance.gameObject);
         instance = null;
     }
 }
