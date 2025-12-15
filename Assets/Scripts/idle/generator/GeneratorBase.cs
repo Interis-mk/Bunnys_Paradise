@@ -2,12 +2,14 @@
 using System.Collections;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+
 [RequireComponent(typeof(DialogueOnHover))]
 public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
 {
     public virtual float baseAmount { get; set; }
-    public virtual float multiplier{ get; set; }
-    public virtual int generatorAmount{ get; set; }
+    public virtual float multiplier { get; set; }
+
+public virtual int generatorAmount{ get; set; }
     public virtual float repeatRate{get; set; }
     public virtual bool isGenerating{get; set;}
     public virtual float baseCost{get; set;}
@@ -16,6 +18,7 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
     
     public virtual void Start()
     {
+        multiplier = 1;
         cost = baseCost;
         OnHover = gameObject.GetComponent<DialogueOnHover>();
         UpdateDialogue();
@@ -33,11 +36,12 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
     {
         float cost = baseCost * Mathf.Pow(1.15f, generatorAmount);
         cost = MathF.Round(cost, 0, MidpointRounding.ToEven);
-        if (cost * (generatorAmount+1) <= CurrencyManager.instance.currency)
+        if (cost <= CurrencyManager.instance.currency)
         {
             generatorAmount += 1;
             if (!isGenerating)
             {
+                CurrencyManager.instance.TakeCurrency(cost);
                 StartGenerating();
                 isGenerating = true;
             }

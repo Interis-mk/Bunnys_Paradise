@@ -6,7 +6,7 @@ public class DialogueOnHover : MonoBehaviour
 {
     public string dialogue;
     public GameObject prefab;
-    protected GameObject instance;
+    private GameObject instance;
 
     public void Update()
     {
