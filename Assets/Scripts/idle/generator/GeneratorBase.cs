@@ -40,9 +40,9 @@ public virtual int generatorAmount{ get; set; }
         {
             generatorAmount += 1;
             UpdateDialogue(); 
+            CurrencyManager.instance.TakeCurrency(cost);
             if (!isGenerating)
             {
-                CurrencyManager.instance.TakeCurrency(cost);
                 StartGenerating();
                 isGenerating = true;
             }
