@@ -593,20 +593,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5131480749504154075, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
   m_PrefabInstance: {fileID: 6343384867122604820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &628333963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628333957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9bafceb3ac9458c987b8e724ba8a0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: cost
-  prefab: {fileID: 7079907956289603932, guid: f08d5eb2cdfe0bc4d8c63d6f692d48f3, type: 3}
 --- !u!114 &628333964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +610,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 628333963}
+        - m_Target: {fileID: 628333966}
           m_TargetAssemblyTypeName: DialogueOnHover, Assembly-CSharp
           m_MethodName: StartDialogue
           m_Mode: 1
@@ -640,7 +626,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 628333963}
+        - m_Target: {fileID: 628333966}
           m_TargetAssemblyTypeName: DialogueOnHover, Assembly-CSharp
           m_MethodName: StopDialogue
           m_Mode: 1
@@ -652,6 +638,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &628333966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6371626893016797595, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+  m_PrefabInstance: {fileID: 6343384867122604820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628333957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bafceb3ac9458c987b8e724ba8a0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &677582153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2125,10 @@ PrefabInstance:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 7079907956289603932, guid: f08d5eb2cdfe0bc4d8c63d6f692d48f3, type: 3}
+    - target: {fileID: 6371626893016797595, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
+      propertyPath: dialogue
+      value: aiihnah
+      objectReference: {fileID: 0}
     - target: {fileID: 7279037664882162931, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       propertyPath: m_Name
       value: shopback
@@ -2227,9 +2228,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1728254326005805731, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1908325717}
-    - targetCorrespondingSourceObject: {fileID: 5131480749504154075, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 628333963}
     - targetCorrespondingSourceObject: {fileID: 5131480749504154075, guid: e1e693f6ffbe5434187be7e096bb196c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 628333964}
