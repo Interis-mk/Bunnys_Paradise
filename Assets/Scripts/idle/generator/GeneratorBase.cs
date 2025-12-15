@@ -39,7 +39,7 @@ public virtual int generatorAmount{ get; set; }
         if (cost <= CurrencyManager.instance.currency)
         {
             generatorAmount += 1;
-            UpdateDialogue();
+            UpdateDialogue(); 
             if (!isGenerating)
             {
                 CurrencyManager.instance.TakeCurrency(cost);
