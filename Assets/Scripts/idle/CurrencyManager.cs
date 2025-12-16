@@ -8,8 +8,8 @@ public class CurrencyManager : MonoBehaviour
     public float currency = 0;
     public int currencyPerSecond = 0;
     public static CurrencyManager instance;
-    [SerializeField]private TextMeshProUGUI currencyText;
-    [SerializeField]private TextMeshProUGUI currencyPerSecondText;
+    [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private TextMeshProUGUI currencyPerSecondText;
     [SerializeField] private string currencyName = "Carrots: ";
     [SerializeField] private string currencyPerSecondName = "CPS: ";
     
