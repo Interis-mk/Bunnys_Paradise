@@ -37,7 +37,7 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
         cost = MathF.Round(cost, 0, MidpointRounding.ToEven);
         if (cost <= CurrencyManager.instance.currency)
         {
-            CurrencyManager.instance.TakeCurrency(cost * (generatorAmount + 1));
+            CurrencyManager.instance.TakeCurrency(cost);
             CurrencyManager.instance.currencyPerSecond++;
             generatorAmount += 1;
             UpdateDialogue(); 
