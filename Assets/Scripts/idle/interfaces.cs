@@ -8,9 +8,22 @@ public interface IUpgrade
     
     public Carrot clickObject{get;set;}
     void OnBuyIncrement();
-    void OnBuy(int cost);
+    void OnBuy();
     
 }
+
+public interface ICarrotGenerator
+{
+    public float baseAmount { get; set; }
+    public float multiplier{ get; set; }
+    public int generatorAmount{ get; set; }
+    public float repeatRate{get; set; }
+    public bool isGenerating{get; set;}
+    public float baseCost{get; set;}
+    void OnBuy();
+    void StartGenerating();
+}
+
 public interface IClickable{
     void IsClicked();
 }

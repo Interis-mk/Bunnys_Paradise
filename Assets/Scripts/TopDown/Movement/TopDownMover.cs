@@ -54,6 +54,10 @@ public class TopDownMover : MonoBehaviour
     {
         if (moveValue.sqrMagnitude > 1f)
             moveValue = moveValue.normalized;
+        if (moveValue.x > 1 && moveValue.y > 0 || moveValue.y > 1 && moveValue.x > 0)
+        {
+            Vector2 savedDirection = moveValue;
+        }
 
         if (rb != null)
         {
