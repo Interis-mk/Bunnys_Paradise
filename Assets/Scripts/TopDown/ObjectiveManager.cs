@@ -12,9 +12,9 @@ public class ObjectiveManager : MonoBehaviour
     {
         foreach (GameObject objective in ObjectiveObjects)
         {
-            if (!objective.GetComponent<ObjectiveBase>()) 
+            if (objective.TryGetComponent(out ObjectiveBase ob))
             {
-                
+                Debug.Log(ob.objectiveType);
             }
         }
     }
