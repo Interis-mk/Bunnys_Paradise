@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 [ExecuteInEditMode]
-public class ObjectiveBase : MonoBehaviour, IObjective
+public class ObjectiveBase : MonoBehaviour
 {
-    public bool isActive{get;set;}
+    public bool isCompleted;
     public enum ObjectiveType
     {
         Location,
@@ -24,10 +25,14 @@ public class ObjectiveBase : MonoBehaviour, IObjective
         return CurrencyManager.instance.currency >= milestone;
     }
     
-    
-    public bool isCompleted()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        return true;
+        if (objectiveType == ObjectiveType.Location)
+        {
+            isCompleted = true;
+            isTouched = true;
+        }
     }
 }
 

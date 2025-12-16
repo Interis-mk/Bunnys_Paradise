@@ -6,15 +6,24 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public List<GameObject> ObjectiveObjects = new List<GameObject>();
+    public List<GameObject> Objectives;
+    public Queue<GameObject> ObjectiveObjects = new Queue<GameObject>();
+
+    private void Start()
+    {
+        foreach (GameObject objective in Objectives)
+        {
+            ObjectiveObjects.Enqueue(objective);
+        }
+    }
 
     private void Update()
     {
-        foreach (GameObject objective in ObjectiveObjects)
+        if (ObjectiveObjects.Peek().TryGetComponent(out ObjectiveBase ob))
         {
-            if (objective.TryGetComponent(out ObjectiveBase ob))
+            if (ob.isCompleted)
             {
-                Debug.Log(ob.objectiveType);
+                ObjectiveObjects.Dequeue();
             }
         }
     }
