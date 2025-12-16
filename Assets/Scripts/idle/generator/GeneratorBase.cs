@@ -19,6 +19,7 @@ public abstract class GeneratorBase : MonoBehaviour
         if (cost * (generatorAmount + 1) <= CurrencyManager.instance.currency)
         {
             CurrencyManager.instance.TakeCurrency(cost * (generatorAmount + 1));
+            CurrencyManager.instance.currencyPerSecond++;
             generatorAmount += 1;
             if (!isGenerating)
             {
