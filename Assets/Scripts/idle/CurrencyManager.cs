@@ -21,8 +21,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start()
     {
-        if (currencyText == null || currencyPerSecondText == null || currencyName == null ||
-            currencyPerSecondName == null)
+        if (currencyText == null || currencyPerSecondText == null)
         {
             Debug.LogError("one or more SerializeFields are not set in CurrencyManager");
         }
