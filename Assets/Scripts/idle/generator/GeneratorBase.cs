@@ -8,12 +8,11 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
 {
     public virtual float baseAmount { get; set; }
     public virtual float multiplier { get; set; }
-
-public virtual int generatorAmount{ get; set; }
-    public virtual float repeatRate{get; set; }
-    public virtual bool isGenerating{get; set;}
-    public virtual float baseCost{get; set;}
-    protected virtual DialogueOnHover OnHover{get;set;}
+    public virtual int generatorAmount{ get; set; }
+    public virtual float repeatRate { get; set; }
+    public virtual bool isGenerating { get; set; }
+    public virtual float baseCost { get; set; }
+    protected virtual DialogueOnHover OnHover{ get; set; }
     protected virtual float cost { get; set; }
     
     public virtual void Start()
@@ -38,6 +37,8 @@ public virtual int generatorAmount{ get; set; }
         cost = MathF.Round(cost, 0, MidpointRounding.ToEven);
         if (cost <= CurrencyManager.instance.currency)
         {
+            CurrencyManager.instance.TakeCurrency(cost);
+            CurrencyManager.instance.currencyPerSecond++;
             generatorAmount += 1;
             UpdateDialogue(); 
             CurrencyManager.instance.TakeCurrency(cost);
