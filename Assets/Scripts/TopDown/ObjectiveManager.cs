@@ -11,19 +11,30 @@ public class ObjectiveManager : MonoBehaviour
 
     private void Start()
     {
+        
+        foreach (var o in Objectives)
+        {
+            o.SetActive(false);
+        }
+
         foreach (GameObject objective in Objectives)
         {
             ObjectiveObjects.Enqueue(objective);
         }
+        ObjectiveObjects.Peek().gameObject.SetActive(true);
     }
 
     private void Update()
     {
+        
         if (ObjectiveObjects.Peek().TryGetComponent(out ObjectiveBase ob))
         {
             if (ob.isCompleted)
             {
+                DestroyImmediate(ob.gameObject);
                 ObjectiveObjects.Dequeue();
+                ObjectiveObjects.Peek().gameObject.SetActive(true);
+                
             }
         }
     }

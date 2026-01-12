@@ -9,6 +9,8 @@ public class ObjectiveEditor : Editor
     SerializedProperty sceneKey;
     SerializedProperty isTouched;
     SerializedProperty objectiveType;
+    SerializedProperty onComplete;
+    
 
     public void OnEnable()
     {
@@ -17,12 +19,14 @@ public class ObjectiveEditor : Editor
         sceneKey = serializedObject.FindProperty("sceneKey");
         isTouched = serializedObject.FindProperty("isTouched");
         objectiveType = serializedObject.FindProperty("objectiveType");
+        onComplete = serializedObject.FindProperty("OnComplete");
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
         EditorGUILayout.PropertyField(objectiveType);
+        EditorGUILayout.PropertyField(onComplete);
         serializedObject.ApplyModifiedProperties();
         switch (objectiveType.enumValueIndex)
         {
