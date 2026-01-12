@@ -6,14 +6,34 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public List<GameObject> ObjectiveObjects = new List<GameObject>();
+    public List<GameObject> Objectives;
+    public Queue<GameObject> ObjectiveObjects = new Queue<GameObject>();
+
+    private void Start()
+    {
+        
+        foreach (var o in Objectives)
+        {
+            o.SetActive(false);
+        }
+
+        foreach (GameObject objective in Objectives)
+        {
+            ObjectiveObjects.Enqueue(objective);
+        }
+        ObjectiveObjects.Peek().gameObject.SetActive(true);
+    }
 
     private void Update()
     {
-        foreach (GameObject objective in ObjectiveObjects)
+        
+        if (ObjectiveObjects.Peek().TryGetComponent(out ObjectiveBase ob))
         {
-            if (!objective.GetComponent<ObjectiveBase>()) 
+            if (ob.isCompleted)
             {
+                DestroyImmediate(ob.gameObject);
+                ObjectiveObjects.Dequeue();
+                ObjectiveObjects.Peek().gameObject.SetActive(true);
                 
             }
         }
