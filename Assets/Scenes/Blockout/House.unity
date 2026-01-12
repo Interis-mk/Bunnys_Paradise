@@ -1119,8 +1119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 20
-  m_RefResolutionX: 640
-  m_RefResolutionY: 360
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_CropFrame: 0
   m_GridSnapping: 0
   m_FilterMode: 0
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   col: {fileID: 1162989285}
   sceneName: Basement
   doorCooldown: 2
-  sceneBuildIndexOverride: -1
+  sceneBuildIndexOverride: 0
 --- !u!61 &1162989285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preloadDistance: 1
   enableDebug: 1
-  logLoadingProgressEachFrame: 0
+  logLoadingProgressEachFrame: 1
   playerRoot: {fileID: 1307255367}
   playerTag: Player
   preventOverlappingTransitions: 1
