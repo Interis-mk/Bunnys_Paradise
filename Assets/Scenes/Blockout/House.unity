@@ -1358,6 +1358,7 @@ MonoBehaviour:
   col: {fileID: 1162989285}
   sceneName: Basement
   doorCooldown: 2
+  sceneBuildIndexOverride: -1
 --- !u!61 &1162989285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1486,6 +1487,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preloadDistance: 1
   enableDebug: 1
+  logLoadingProgressEachFrame: 0
+  playerRoot: {fileID: 1307255367}
+  playerTag: Player
+  preventOverlappingTransitions: 1
 --- !u!1 &1338367343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,6 +2235,7 @@ MonoBehaviour:
   col: {fileID: 2003402863}
   sceneName: Basement
   doorCooldown: 2
+  sceneBuildIndexOverride: 0
 --- !u!1 &2042891567
 GameObject:
   m_ObjectHideFlags: 0
