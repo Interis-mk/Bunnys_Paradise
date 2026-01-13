@@ -25,6 +25,7 @@ public class CurrencyManager : MonoBehaviour
         {
             Debug.LogError("one or more SerializeFields are not set in CurrencyManager");
         }
+        
     }
 
     private void Update()
