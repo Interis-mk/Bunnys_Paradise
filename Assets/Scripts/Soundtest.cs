@@ -7,7 +7,6 @@ public class SoundTest : MonoBehaviour
     public void PlayMusic1()
     {
         SoundManager.instance.SwitchMusic("creepy-buildup");
-        
     }public void PlayMusic2()
     {
         SoundManager.instance.SwitchMusic("creepy-even");
