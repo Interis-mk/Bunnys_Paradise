@@ -41,7 +41,6 @@ public abstract class GeneratorBase : MonoBehaviour, ICarrotGenerator
             CurrencyManager.instance.currencyPerSecond++;
             generatorAmount += 1;
             UpdateDialogue(); 
-            CurrencyManager.instance.TakeCurrency(cost);
             if (!isGenerating)
             {
                 StartGenerating();

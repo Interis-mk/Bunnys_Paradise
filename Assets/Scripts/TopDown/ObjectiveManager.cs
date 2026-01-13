@@ -11,7 +11,6 @@ public class ObjectiveManager : MonoBehaviour
 
     private void Start()
     {
-        
         foreach (var o in Objectives)
         {
             o.SetActive(false);
@@ -21,20 +20,25 @@ public class ObjectiveManager : MonoBehaviour
         {
             ObjectiveObjects.Enqueue(objective);
         }
+
         ObjectiveObjects.Peek().gameObject.SetActive(true);
     }
 
     private void Update()
     {
-        
-        if (ObjectiveObjects.Peek().TryGetComponent(out ObjectiveBase ob))
+        if (ObjectiveObjects.Count >= 1)
         {
-            if (ob.isCompleted)
+            if (ObjectiveObjects.Peek().TryGetComponent(out ObjectiveBase ob))
             {
-                DestroyImmediate(ob.gameObject);
-                ObjectiveObjects.Dequeue();
-                ObjectiveObjects.Peek().gameObject.SetActive(true);
-                
+                if (ob.isCompleted)
+                {
+                    DestroyImmediate(ob.gameObject);
+                    ObjectiveObjects.Dequeue();
+                    if (ObjectiveObjects.Count >= 1)
+                    {
+                        ObjectiveObjects.Peek().gameObject.SetActive(true);
+                    }
+                }
             }
         }
     }
