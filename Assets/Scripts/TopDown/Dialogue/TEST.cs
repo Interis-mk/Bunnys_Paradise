@@ -17,5 +17,6 @@ public class TEST : MonoBehaviour
 	private void FixedUpdate()
 	{
 		Debug.Log(test.AllDialogue[0].DialogueItems[0]);
+		test.Load();
 	}
 }
