@@ -5,10 +5,40 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blockout/Basement.unity
     guid: ba97c595e09554143936ee8891fddbbc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blockout/House.unity
     guid: 4f28f28af7523024c8e744542db90f68
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Game Room 1.unity
+    guid: bf93288f4ec2da249bbc22dee8efd042
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Hallway 2.unity
+    guid: c14ceec3db18a7c4ebea8af315daec7e
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Bedroom 3.unity
+    guid: d254b3286b27217418dd335fa0668c37
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Bathroom 4.unity
+    guid: 981317aea9ad15d45a3916da16b30b15
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Living Room 5.unity
+    guid: 12bccd0747b854e458b7a698e3eb0cd6
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Long Hallway 6.unity
+    guid: 38dc020443a32f9489a1e72cefc56439
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Small Hallway 7.unity
+    guid: f6c2bc7e4d5f1294393273756075b820
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Entrance 8.unity
+    guid: eefee77af89e5704caf41be046b5c54f
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Kitchen 9.unity
+    guid: 092a6c4472a0aab4bb596af3c262b5a6
+  - enabled: 1
+    path: Assets/Scenes/Mansion Rooms/Chair Room 10.unity
+    guid: db2d53a1b23da3643aa792046fa7e1be
   m_configObjects: {}
