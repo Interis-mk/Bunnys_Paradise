@@ -15,7 +15,7 @@ namespace TopDown.Dialogue
             Load();
         }
 
-        void Load()
+        public void Load()
         {
             // read JSON from the provided TextAsset and populate AllDialogue
             if (dialogueFile == null)

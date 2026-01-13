@@ -8028,6 +8028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140764169}
   - component: {fileID: 140764168}
+  - component: {fileID: 140764170}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -8064,6 +8065,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140764170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140764167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb344ff1f6121a4b8cdf1d2eefab96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueFile: {fileID: 4900000, guid: 219c44169a374126b90d0caf918c3a2b, type: 3}
+  AllDialogue: []
 --- !u!1 &141048102
 GameObject:
   m_ObjectHideFlags: 0
