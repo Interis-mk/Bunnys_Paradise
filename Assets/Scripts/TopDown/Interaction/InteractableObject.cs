@@ -5,9 +5,9 @@ using UnityEngine.Events;
 public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings")]
+    public string interactionPrompt = "Interact";
     public bool isInteractable = true;
     public float interactionRadius = 2f;
-    public UnityEvent OnInteract;
 
     [Header("Visual Feedback")]
     public Sprite interactionSprite;
@@ -17,15 +17,16 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public string sortingLayerName = "UI";
 
     protected bool playerInRange = false;
-    //protected Transform playerTransform;
+    protected Transform playerTransform;
     protected GameObject interactionPromptObject;
     protected SpriteRenderer promptSpriteRenderer;
+    public UnityEvent OnInteract { get; set; }
 
     protected virtual void Start()
     {
         Collider2D col = GetComponent<Collider2D>();
         col.isTrigger = true;
-        //OnInteract.AddListener(OnEventTriggerd);
+        OnInteract.AddListener(OnEventTriggerd);
         CreateInteractionPrompt();
     }
 
@@ -62,7 +63,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (other.CompareTag("Player") && CanInteract())
         {
             playerInRange = true;
-            //playerTransform = other.transform;
+            playerTransform = other.transform;
             ShowInteractionUI();
             InteractionManager.Instance?.RegisterInteractable(this);
         }
@@ -73,7 +74,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            //playerTransform = null;
+            playerTransform = null;
             HideInteractionUI();
             InteractionManager.Instance?.UnregisterInteractable(this);
         }
@@ -81,10 +82,14 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        OnInteract?.Invoke();
         Debug.Log($"Interacted with {gameObject.name}");
     }
-    
+
+    public virtual string GetInteractionPrompt()
+    {
+        return interactionPrompt;
+    }
+
     public virtual bool CanInteract()
     {
         return isInteractable;
@@ -112,11 +117,13 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             interactionPromptObject.SetActive(false);
     }
 
-    protected void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        // this is showing nothing in editor, i don't get why
-        Gizmos.DrawWireSphere(transform.position, 10/*interactionRadius*/);
-        Debug.Log("Gizmo Drawn");
+        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+    }
+
+    protected virtual void OnEventTriggerd()
+    {
     }
 }
