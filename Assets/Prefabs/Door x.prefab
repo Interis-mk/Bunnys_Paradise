@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5503235020589787769}
   - component: {fileID: 3470521777551699375}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Door x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7973025552254433129}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.5709, y: -0.7049, z: 0.0036937292}
   m_LocalScale: {x: 0.1142, y: 2.6219492, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6903259464999009991
 SpriteRenderer:
   m_ObjectHideFlags: 0
