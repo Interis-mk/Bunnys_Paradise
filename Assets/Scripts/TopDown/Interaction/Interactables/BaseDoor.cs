@@ -10,7 +10,9 @@ public class BaseDoor : MonoBehaviour
     [SerializeField]
     [Tooltip("Optional: the trigger Collider2D. If null the script will use the Collider2D on this GameObject.")]
     private Collider2D col;
-
+    [Header("Spawn Settings")]
+    [SerializeField] [Tooltip("The ID of the spawn point in the target scene.")]
+    private string targetSpawnID;
     [SerializeField] [Tooltip("Name of the scene to load (must be added to Build Settings)")]
     private string sceneName = "Basement";
 
@@ -18,6 +20,7 @@ public class BaseDoor : MonoBehaviour
     private float doorCooldown = 1.0f;
 
     private float nextOpenTime;
+    private GameObject nextScenePlayer;
 
     [Header("Target Scene")]
     [Tooltip("Optional explicit build index. If >= 0, the door will always load this index and ignore sceneName.")]
@@ -102,54 +105,108 @@ public class BaseDoor : MonoBehaviour
         StartCoroutine(LoadAndSwapCoroutine(buildIndex, targetScene, previousScene));
     }
 
-    private IEnumerator LoadAndSwapCoroutine(int buildIndex, string targetScene, string previousScene)
+    private IEnumerator LoadAndSwapCoroutine(int buildIndex, string targetSceneName, string previousSceneName)
+{
+    // STEP 1: Start the Async Loading process
+    AsyncOperation loadOperation;
+
+    if (sceneBuildIndexOverride >= 0)
     {
-        AsyncOperation ao;
-        if (buildIndex >= 0)
-        {
-            ao = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
-        }
-        else
-        {
-            ao = SceneManager.LoadSceneAsync(targetScene, LoadSceneMode.Additive);
-        }
+        loadOperation = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
+    }
+    else
+    {
+        loadOperation = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Additive);
+    }
 
-        if (ao == null)
-        {
-            Debug.LogError("BasementDoor: Failed to start async load.");
-            yield break;
-        }
+    // Safety check if the load failed to start
+    if (loadOperation == null)
+    {
+        Debug.LogError($"Failed to load scene: {targetSceneName}");
+        yield break;
+    }
 
-        // Wait until load completes
-        while (!ao.isDone)
-        {
-            yield return null;
-        }
+    // STEP 2: Wait for the scene to finish loading into memory
+    while (!loadOperation.isDone)
+    {
+        yield return null;
+    }
 
-        // Determine the loaded scene object
-        Scene loadedScene;
-        if (buildIndex >= 0)
-        {
-            loadedScene = SceneManager.GetSceneByBuildIndex(buildIndex);
-        }
-        else
-        {
-            loadedScene = SceneManager.GetSceneByName(targetScene);
-        }
+    // STEP 3: Identify the Scene object that was just loaded
+    Scene loadedScene;
+    if (sceneBuildIndexOverride >= 0)
+    {
+        loadedScene = SceneManager.GetSceneByBuildIndex(buildIndex);
+    }
+    else
+    {
+        loadedScene = SceneManager.GetSceneByName(targetSceneName);
+    }
 
-        if (!loadedScene.IsValid())
-        {
-            Debug.LogError("BasementDoor: Loaded scene is not valid.");
-            yield break;
-        }
+    // Validate the scene before proceeding
+    if (!loadedScene.IsValid())
+    {
+        Debug.LogError("The loaded scene is not valid. Check Build Settings.");
+        yield break;
+    }
 
-        // Set the newly loaded scene as active so its Awake/Start run in the active context.
-        SceneManager.SetActiveScene(loadedScene);
+    // STEP 4: Activate the new scene
+    // This ensures new objects are instantiated into the correct scene
+    SceneManager.SetActiveScene(loadedScene);
 
-        // If the previous scene is different, schedule its unload after configured delay.
-        if (!string.IsNullOrEmpty(previousScene) && previousScene != loadedScene.name)
+    // STEP 5: Teleport the Player to the correct Spawn Point
+    MovePlayerToSpawn(loadedScene);
+
+    // STEP 6: Clean up the old scene
+    // We only unload if the scene actually changed
+    bool isDifferentScene = !string.IsNullOrEmpty(previousSceneName) && previousSceneName != loadedScene.name;
+
+    if (isDifferentScene)
+    {
+        // Use the configured delay to allow the camera/player to settle
+        float finalDelay = Mathf.Max(0f, unloadDelay);
+        
+        CallAfterDelay.Create(finalDelay, () => 
+        { 
+            SceneHelper.UnloadScene(previousSceneName); 
+        });
+    }
+}
+
+
+private void MovePlayerToSpawn(Scene targetScene)
+{
+    
+    GameObject[] newSceneObjects = targetScene.GetRootGameObjects();
+    foreach (GameObject o in newSceneObjects)
+    {
+        if (o.gameObject.CompareTag("Player"))
         {
-            CallAfterDelay.Create(Mathf.Max(0f, unloadDelay), () => { SceneHelper.UnloadScene(previousScene); });
+            nextScenePlayer = o;
         }
     }
+    
+    if (nextScenePlayer == null)
+    {
+        Debug.LogWarning("MovePlayerToSpawn: No object with tag 'Player' found.");
+        return;
+    }
+
+    // Find all potential spawn points in the game
+    SceneSpawnPoint[] allSpawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
+
+    foreach (SceneSpawnPoint spawn in allSpawns)
+    {
+        // Check if this spawn point belongs to the scene we just loaded 
+        // AND matches the ID we are looking for
+        if (spawn.gameObject.scene == targetScene && spawn.SpawnPointID == targetSpawnID)
+        {
+            nextScenePlayer.transform.position = spawn.transform.position;
+            nextScenePlayer.transform.rotation = spawn.transform.rotation;
+            return;
+        }
+    }
+
+    Debug.LogWarning($"MovePlayerToSpawn: Could not find SpawnPoint ID '{targetSpawnID}' in {targetScene.name}");
+}
 }
