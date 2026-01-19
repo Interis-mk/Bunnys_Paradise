@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class ScrollingText : MonoBehaviour
 {
+	public static ScrollingText Instance;
 	[SerializeField] string finalText = "This is a sample scrolling text effect.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	[SerializeField] TextMeshProUGUI textComponent;
 	int currentIndex = 0;
 	void Start()
 	{
+		Instance = this;
 		textComponent.text = "";
 		StartCoroutine(TypeText());
 	}
