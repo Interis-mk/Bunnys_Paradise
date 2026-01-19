@@ -7393,7 +7393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: targetSpawnID
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6670801565221843018, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7494,6 +7494,10 @@ PrefabInstance:
     - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: sceneName
       value: Bedroom 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
+      propertyPath: targetSpawnID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6670801565221843018, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7605,7 +7609,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: sceneName
-      value: Bedroom 3
+      value: Bathroom 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
+      propertyPath: targetSpawnID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6670801565221843018, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7801,7 +7809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1975427214807368197, guid: 677b828e7a8e51148b4d2fe954680426, type: 3}
       propertyPath: spawnPointID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2530832880543719932, guid: 677b828e7a8e51148b4d2fe954680426, type: 3}
       propertyPath: m_Name
@@ -7906,7 +7914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115621767150213927, guid: 278d90db743a869408682429af6f10d9, type: 3}
       propertyPath: spawnPointID
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7967,7 +7975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7492623239351589547, guid: 09d42ff032400ab46a70c1899e201718, type: 3}
       propertyPath: spawnPointID
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

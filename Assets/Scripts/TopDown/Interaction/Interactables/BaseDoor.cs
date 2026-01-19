@@ -20,6 +20,7 @@ public class BaseDoor : MonoBehaviour
     private float doorCooldown = 1.0f;
 
     private float nextOpenTime;
+    private GameObject nextScenePlayer;
 
     [Header("Target Scene")]
     [Tooltip("Optional explicit build index. If >= 0, the door will always load this index and ignore sceneName.")]
@@ -172,11 +173,20 @@ public class BaseDoor : MonoBehaviour
     }
 }
 
+
 private void MovePlayerToSpawn(Scene targetScene)
 {
-    GameObject player = GameObject.FindGameObjectWithTag("Player");
     
-    if (player == null)
+    GameObject[] newSceneObjects = targetScene.GetRootGameObjects();
+    foreach (GameObject o in newSceneObjects)
+    {
+        if (o.gameObject.CompareTag("Player"))
+        {
+            nextScenePlayer = o;
+        }
+    }
+    
+    if (nextScenePlayer == null)
     {
         Debug.LogWarning("MovePlayerToSpawn: No object with tag 'Player' found.");
         return;
@@ -191,8 +201,8 @@ private void MovePlayerToSpawn(Scene targetScene)
         // AND matches the ID we are looking for
         if (spawn.gameObject.scene == targetScene && spawn.SpawnPointID == targetSpawnID)
         {
-            player.transform.position = spawn.transform.position;
-            player.transform.rotation = spawn.transform.rotation;
+            nextScenePlayer.transform.position = spawn.transform.position;
+            nextScenePlayer.transform.rotation = spawn.transform.rotation;
             return;
         }
     }
