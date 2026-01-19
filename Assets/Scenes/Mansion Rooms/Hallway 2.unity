@@ -7391,6 +7391,10 @@ PrefabInstance:
       propertyPath: sceneName
       value: Game Room 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3470521777551699375, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
+      propertyPath: targetSpawnID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6670801565221843018, guid: d5bf90ff343546a4b9c1d775d397dd02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.979084
@@ -7795,6 +7799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975427214807368197, guid: 677b828e7a8e51148b4d2fe954680426, type: 3}
+      propertyPath: spawnPointID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2530832880543719932, guid: 677b828e7a8e51148b4d2fe954680426, type: 3}
       propertyPath: m_Name
       value: Spawnpoint3
@@ -7896,6 +7904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawnpoint1
       objectReference: {fileID: 0}
+    - target: {fileID: 7115621767150213927, guid: 278d90db743a869408682429af6f10d9, type: 3}
+      propertyPath: spawnPointID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7952,6 +7964,10 @@ PrefabInstance:
     - target: {fileID: 6895977826268149010, guid: 09d42ff032400ab46a70c1899e201718, type: 3}
       propertyPath: m_Name
       value: Spawnpoint2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492623239351589547, guid: 09d42ff032400ab46a70c1899e201718, type: 3}
+      propertyPath: spawnPointID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
