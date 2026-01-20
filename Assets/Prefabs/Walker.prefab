@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 458751577885910271}
   - component: {fileID: 7372417202882053561}
-  - component: {fileID: 5329893027460902245}
   - component: {fileID: 6207805361172588325}
   - component: {fileID: 2223708830087232925}
+  - component: {fileID: 5329893027460902245}
+  - component: {fileID: 670474593984814572}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Player
@@ -81,22 +82,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78795433, y: 0.6848601}
   m_EdgeRadius: 0
---- !u!114 &5329893027460902245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615847285645249354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe7c88b98f8ea04f98761a128700f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  rb: {fileID: 6207805361172588325}
-  animator: {fileID: 307409813894615830}
-  spriteRenderer: {fileID: 3169561370841976681}
 --- !u!50 &6207805361172588325
 Rigidbody2D:
   serializedVersion: 4
@@ -145,6 +130,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5329893027460902245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615847285645249354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe7c88b98f8ea04f98761a128700f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  rb: {fileID: 6207805361172588325}
+  animator: {fileID: 307409813894615830}
+  spriteRenderer: {fileID: 3169561370841976681}
+--- !u!114 &670474593984814572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615847285645249354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb25e7d9e2744f7bb0005481e011cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6272330145911374530
 GameObject:
   m_ObjectHideFlags: 0

@@ -360,6 +360,7 @@ MonoBehaviour:
   col: {fileID: 1306996079}
   sceneName: House
   doorCooldown: 2
+  sceneBuildIndexOverride: 1
 --- !u!1001 &1638663174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,11 +371,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 458751577885910271, guid: d427071c355bb4e468f26113899a3868, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.08
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 458751577885910271, guid: d427071c355bb4e468f26113899a3868, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.07
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 458751577885910271, guid: d427071c355bb4e468f26113899a3868, type: 3}
       propertyPath: m_LocalPosition.z
