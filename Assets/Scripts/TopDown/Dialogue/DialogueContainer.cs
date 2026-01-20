@@ -2,12 +2,33 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 namespace TopDown.Dialogue
 {
+    
     public class DialogueContainer : MonoBehaviour
     {
         [SerializeField] TextAsset dialogueFile;
+        public static DialogueContainer instance;
 
+        public void Start()
+        {
+            instance = this;
+        }
+
+        public string[] CustomQuarry(Dialogue[] dialogues,string key)
+        {
+            foreach (Dialogue d in dialogues)
+            {
+                if (d.Key == key)
+                {
+                    return d.DialogueItems;
+                }
+            }
+            Debug.LogError($"no entry with key: {key}");
+            return null;
+        }
         // store an array of Dialogue entries (JSON has an array of objects in the TextAsset)
         public Dialogue[] AllDialogue;
         public void Awake()
@@ -52,17 +73,7 @@ namespace TopDown.Dialogue
             }
         }
 
-        // Helper: return dialogue items for a given key (returns empty array if not found)
-        public string[] GetDialogueItems(string key)
-        {
-            if (AllDialogue == null) return new string[0];
-            foreach (var d in AllDialogue)
-            {
-                if (d != null && d.Key == key)
-                    return d.DialogueItems ?? new string[0];
-            }
-            return new string[0];
-        }
+        public void SwitchActive(bool active) => ScrollingText.instance.textComponent.gameObject.SetActive(active);
 
         // Helper: return all keys that were loaded
         public string[] GetAllKeys()
@@ -73,6 +84,12 @@ namespace TopDown.Dialogue
                 if (d != null && d.Key != null)
                     keys.Add(d.Key);
             return keys.ToArray();
+        }
+
+        public void QueueDialogue(string key)
+        {
+            string[] queueable = CustomQuarry(AllDialogue, key);
+            ScrollingText.instance.MakeTextQueue(queueable);
         }
     }
 

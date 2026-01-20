@@ -8030,6 +8030,7 @@ GameObject:
   - component: {fileID: 140764168}
   - component: {fileID: 140764170}
   - component: {fileID: 140764171}
+  - component: {fileID: 140764172}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -8051,6 +8052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalText: This is a sample scrolling text effect.
   textComponent: {fileID: 1170567823}
+  textTypeDelay: 0.1
+  textDisappearanceDelay: 2
 --- !u!4 &140764169
 Transform:
   m_ObjectHideFlags: 0
@@ -8093,6 +8096,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: {fileID: 140764170}
+  textToTestKey: QuestOffer
+--- !u!114 &140764172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140764167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb97fc08e0d4429bdbdd2be99301223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &141048102
 GameObject:
   m_ObjectHideFlags: 0
@@ -55696,11 +55712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3088a7e9e35b5a64a8ebb6927b3affe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPrompt: Interact
   isInteractable: 1
   interactionRadius: 2
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls: []
   interactionSprite: {fileID: -1289856265, guid: fb6796e389a2ff043a3326a21f1a49df, type: 3}
   spriteOffset: {x: 0, y: 1, z: 0}
   spriteScale: 1
@@ -69356,13 +69370,14 @@ GameObject:
   - component: {fileID: 1170567825}
   - component: {fileID: 1170567824}
   - component: {fileID: 1170567823}
+  - component: {fileID: 1170567826}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1170567823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69479,6 +69494,18 @@ RectTransform:
   m_AnchoredPosition: {x: -674.8, y: -364.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1170567826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170567822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb97fc08e0d4429bdbdd2be99301223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1173874400
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,37 +1,70 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using TopDown.Dialogue;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ScrollingText : MonoBehaviour
 {
-	public static ScrollingText Instance;
+	public static ScrollingText instance;
 	[SerializeField] string finalText = "This is a sample scrolling text effect.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-	[SerializeField] TextMeshProUGUI textComponent;
+	public TextMeshProUGUI textComponent;
 	int currentIndex = 0;
+	[SerializeField] float textTypeDelay = 0.5f;
+	[SerializeField] float textDisappearanceDelay = 2f;
+	
+	private Queue<string> textQueue = new Queue<string>();
+	private bool isBusy;
 	void Start()
 	{
-		Instance = this;
+		instance = this;
 		textComponent.text = "";
-		StartCoroutine(TypeText());
 	}
 	
 	private IEnumerator TypeText()
 	{
+		DialogueContainer.instance.SwitchActive(true);
+		isBusy = true;
 		while (finalText.Length > currentIndex) 
 		{
-			/*if (currentIndex > 1000)
-			{
-				//Logger.Log("Current Index: " + currentIndex);
-				Debug.Log("f'ed up while loop");
-				throw new Exception("Simulated exception for demonstration purposes.");
-			}*/
-			
 			textComponent.text = finalText.Substring(0, currentIndex);
 			currentIndex++;
-			yield return new WaitForSeconds(1f); // Delay between each character
+			yield return new WaitForSeconds(textTypeDelay); // Delay between each character
 		}
+		yield return new  WaitForSeconds(textDisappearanceDelay);
+		textComponent.text = "";
+		currentIndex = 0;
+		if(textQueue.Count > 0)
+			textQueue.Dequeue();
+		DialogueContainer.instance.SwitchActive(false);
+		isBusy = false;
+	}
 
-		currentIndex = 0; 
+	private void Update()
+	{
+		if (textQueue.Count > 0)
+		{
+			if (textQueue.Peek() != null)
+			{
+				if (!isBusy)
+				{
+					finalText = textQueue.Peek();
+					StartCoroutine(TypeText());
+				}
+			}
+		}
+	}
+
+	public void MakeTextQueue(string[] textArray)
+	{
+		textQueue.Clear();
+		foreach (string s in textArray)
+		{
+			textQueue.Enqueue(s);
+		}
 	}
 }
