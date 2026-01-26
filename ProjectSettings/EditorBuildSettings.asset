@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Blockout/Basement.unity
-    guid: ba97c595e09554143936ee8891fddbbc
-  - enabled: 0
-    path: Assets/Scenes/Blockout/House.unity
-    guid: 4f28f28af7523024c8e744542db90f68
+  - enabled: 1
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: 603fc83728b27744b956d240241e2b36
+  - enabled: 1
+    path: Assets/Scenes/Menus/Options.unity
+    guid: dc199d87ff25037429a62a5f1d2413ea
+  - enabled: 1
+    path: Assets/Scenes/Clicker-Base.unity
+    guid: 8398a2408c1464049836edeb72dc3b52
   - enabled: 1
     path: Assets/Scenes/Mansion Rooms/Game Room 1.unity
     guid: bf93288f4ec2da249bbc22dee8efd042

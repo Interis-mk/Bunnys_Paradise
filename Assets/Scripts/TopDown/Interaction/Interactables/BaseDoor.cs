@@ -106,7 +106,7 @@ public class BaseDoor : MonoBehaviour
     }
 
     private IEnumerator LoadAndSwapCoroutine(int buildIndex, string targetSceneName, string previousSceneName)
-{
+    {
     // STEP 1: Start the Async Loading process
     AsyncOperation loadOperation;
 
