@@ -18,7 +18,6 @@ public class DialogueOnHover : MonoBehaviour
 
     public void StartDialogue()
     {
-        Debug.Log(dialogue);
         instance = Instantiate(prefab, transform.position, Quaternion.identity, gameObject.transform);
     }
 

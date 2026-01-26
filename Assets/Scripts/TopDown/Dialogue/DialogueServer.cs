@@ -9,9 +9,9 @@ public class DialogueServer : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueBox;
     Queue<string> dialogueLines = new Queue<string>();
     ScriptableObject DialogueContainer;
+    
     void Start()
     {
         dialogueBox.text = "";
     }
-    
 }

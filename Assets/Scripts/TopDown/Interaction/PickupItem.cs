@@ -13,7 +13,7 @@ public class PickupItem : InteractableObject
         base.Interact();
         
         // Add to player inventory (you'll need to implement your inventory system)
-        Debug.Log($"Picked up {itemName}");
+        //Debug.Log($"Picked up {itemName}");
         // InventoryManager.Instance.AddItem(itemName, itemIcon);
         
         if (destroyOnPickup)

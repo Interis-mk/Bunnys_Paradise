@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TopDown.Dialogue;
 using UnityEngine;
 
 public class TEST : MonoBehaviour
@@ -21,6 +20,4 @@ public class TEST : MonoBehaviour
 		Debug.Log(test.AllDialogue[0].DialogueItems[0]);
 		test.Load();
 	}
-	
-	
 }
