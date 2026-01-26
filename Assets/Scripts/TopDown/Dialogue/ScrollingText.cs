@@ -13,13 +13,14 @@ public class ScrollingText : MonoBehaviour
 	public static ScrollingText instance;
 	[SerializeField] string finalText = "This is a sample scrolling text effect.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	public TextMeshProUGUI textComponent;
+	public GameObject dialogueBox;
 	int currentIndex = 0;
 	[SerializeField] float textTypeDelay = 0.5f;
 	[SerializeField] float textDisappearanceDelay = 2f;
 	
 	private Queue<string> textQueue = new Queue<string>();
 	private bool isBusy;
-	void Start()
+	void Awake()
 	{
 		instance = this;
 		textComponent.text = "";
@@ -41,6 +42,7 @@ public class ScrollingText : MonoBehaviour
 		if(textQueue.Count > 0)
 			textQueue.Dequeue();
 		DialogueContainer.instance.SwitchActive(false);
+		yield return new WaitForSeconds(textDisappearanceDelay / 2);
 		isBusy = false;
 	}
 

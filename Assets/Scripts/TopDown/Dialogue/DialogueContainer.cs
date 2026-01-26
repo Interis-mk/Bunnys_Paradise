@@ -6,18 +6,14 @@ using UnityEngine;
 
 namespace TopDown.Dialogue
 {
-    
+
     public class DialogueContainer : MonoBehaviour
     {
         [SerializeField] TextAsset dialogueFile;
         public static DialogueContainer instance;
+        
 
-        public void Start()
-        {
-            instance = this;
-        }
-
-        public string[] CustomQuarry(Dialogue[] dialogues,string key)
+        public string[] CustomQuarry(Dialogue[] dialogues, string key)
         {
             foreach (Dialogue d in dialogues)
             {
@@ -26,14 +22,18 @@ namespace TopDown.Dialogue
                     return d.DialogueItems;
                 }
             }
+
             Debug.LogError($"no entry with key: {key}");
             return null;
         }
+
         // store an array of Dialogue entries (JSON has an array of objects in the TextAsset)
         public Dialogue[] AllDialogue;
+
         public void Awake()
         {
             Load();
+            instance = this;
         }
 
         public void Load()
@@ -73,9 +73,13 @@ namespace TopDown.Dialogue
             }
         }
 
-        public void SwitchActive(bool active) => ScrollingText.instance.textComponent.gameObject.SetActive(active);
-
-        // Helper: return all keys that were loaded
+        public void SwitchActive(bool active)
+        {
+            ScrollingText.instance.textComponent.gameObject.SetActive(active);
+            ScrollingText.instance.dialogueBox.SetActive(active);
+        }
+        
+    // Helper: return all keys that were loaded
         public string[] GetAllKeys()
         {
             if (AllDialogue == null) return new string[0];

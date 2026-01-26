@@ -1,23 +1,16 @@
 [
   {
-    "Key": "IntroGreeting",
+    "Key": "ExitIdle",
     "DialogueItems": [
-      "Hello there, traveler!",
-      "Welcome to our village."
+      "Gee golly, after playing for so long I sure am craving some CARROTS!",
+      "I'll walk to the kitchen quickly to grab some."
     ]
   },
   {
-    "Key": "QuestOffer",
+    "Key": "CarrotPickup",
     "DialogueItems": [
-      "Could you help us with a task?",
-      "We need someone to gather herbs from the forest."
-    ]
-  },
-  {
-    "Key": "Farewell",
-    "DialogueItems": [
-      "Safe travels!",
-      "Come back anytime."
+      "Munch munch munch munch",
+      "MMMM! That pork taste always gets me! Let’s get back to the CARROT game!"
     ]
   }
 ]

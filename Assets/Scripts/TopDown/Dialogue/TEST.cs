@@ -11,15 +11,7 @@ public class TEST : MonoBehaviour
 
 	private void Start()
 	{
-		test.Load();
-		Debug.Log(test.AllDialogue[0].DialogueItems[0]);
 		DialogueContainer.instance.QueueDialogue(textToTestKey);
-	}
-
-	private void FixedUpdate()
-	{
-		Debug.Log(test.AllDialogue[0].DialogueItems[0]);
-		test.Load();
 	}
 	
 	
