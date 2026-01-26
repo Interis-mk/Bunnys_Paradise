@@ -1,16 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoadIdleToTopdown : MonoBehaviour
+public class SceneLoad : MonoBehaviour
 {
-    // Set this in the Inspector (must match the scene name in Build Settings)
-    [SerializeField] private string sceneToLoad;
+    public static SceneLoad instance;
 
-    public void LoadScene()
+    private void Awake()
     {
-        if (!string.IsNullOrEmpty(sceneToLoad))
+        instance = this;
+    }
+
+    public void LoadScene(string name)
+    {
+        if (!string.IsNullOrEmpty(name))
         {
-            SceneManager.LoadScene(sceneToLoad);
+            SceneManager.LoadScene(name);
         }
         else
         {

@@ -2,15 +2,22 @@
   {
     "Key": "ExitIdle",
     "DialogueItems": [
-      "Gee golly, after playing for so long I sure am craving some CARROTS!",
-      "I'll walk to the kitchen quickly to grab some."
+      "Gee golly, after playing for so long I sure am craving some CARROTS!!",
+      "I'll walk to the kitchen quickly to grab some.."
     ]
   },
   {
     "Key": "CarrotPickup",
     "DialogueItems": [
-      "Munch munch munch munch",
-      "MMMM! That pork taste always gets me! Let’s get back to the CARROT game!"
+      "Munch munch munch munchh",
+      "MMMM! That pork taste always gets me! Let’s get back to the CARROT game!!"
+    ]
+  },
+  {
+    "Key": "BackAtPC",
+    "DialogueItems": [
+      "this is the end of this demoo",
+      "sadly we couldn't finish because of internship searchh"
     ]
   }
 ]

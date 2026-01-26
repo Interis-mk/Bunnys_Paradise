@@ -13,14 +13,18 @@ public class MouseHover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint((Vector2)Input.mousePosition), mainCamera.transform.forward, mouseLayer);
-        if (hit.collider != null)
+        if (mainCamera != null)
         {
-            if (Input.GetMouseButtonDown(0))
+            RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint((Vector2)Input.mousePosition),
+                mainCamera.transform.forward, mouseLayer);
+            if (hit.collider != null)
             {
-                if(hit.collider.gameObject.TryGetComponent(out ClickerBase clickerBase))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    clickerBase.onClick.Invoke();
+                    if (hit.collider.gameObject.TryGetComponent(out ClickerBase clickerBase))
+                    {
+                        clickerBase.onClick.Invoke();
+                    }
                 }
             }
         }

@@ -8,9 +8,11 @@ public class ObjectiveManager : MonoBehaviour
 {
     public List<GameObject> Objectives;
     public Queue<GameObject> ObjectiveObjects = new Queue<GameObject>();
+    public static ObjectiveManager instance;
 
     private void Start()
     {
+        instance = this;
         foreach (var o in Objectives)
         {
             o.SetActive(false);

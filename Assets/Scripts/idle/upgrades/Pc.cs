@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,5 +20,13 @@ public class PC : UpgradeBase
         addedBaseClick = baseClick;
         baseCost = basecost;
         base.Start();
+    }
+
+    private void Update()
+    {
+        if (amountOwned >= 1)
+        {
+            SceneLoad.instance.LoadScene("Game Room 1");
+        }
     }
 }
