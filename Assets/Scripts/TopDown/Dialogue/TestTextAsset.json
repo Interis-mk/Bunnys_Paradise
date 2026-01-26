@@ -1,0 +1,24 @@
+[
+  {
+    "Key": "IntroGreeting",
+    "DialogueItems": [
+      "Hello there, traveler!",
+      "Welcome to our village."
+    ]
+  },
+  {
+    "Key": "QuestOffer",
+    "DialogueItems": [
+      "Could you help us with a task?",
+      "We need someone to gather herbs from the forest."
+    ]
+  },
+  {
+    "Key": "Farewell",
+    "DialogueItems": [
+      "Safe travels!",
+      "Come back anytime."
+    ]
+  }
+]
+
