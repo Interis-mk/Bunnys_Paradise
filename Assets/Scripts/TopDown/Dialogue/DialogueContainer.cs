@@ -83,6 +83,11 @@ public class DialogueContainer : MonoBehaviour
     public void QueueDialogue(string key)
     {
         string[] queueable = CustomQuarry(AllDialogue, key);
+        if (queueable == null)
+        {
+            Debug.LogWarning($"DialogueContainer.QueueDialogue: No dialogue found for key '{key}'.");
+            return;
+        }
         ScrollingText.instance.MakeTextQueue(queueable);
     }
 }
