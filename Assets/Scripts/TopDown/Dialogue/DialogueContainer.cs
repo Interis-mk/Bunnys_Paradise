@@ -62,8 +62,8 @@ public class DialogueContainer : MonoBehaviour
         }
         catch (Exception ex)
         {
-            throw new ArgumentException(".json file is malformed or invalid", ex);
             AllDialogue = new Dialogue[0];
+            throw new ArgumentException(".json file is malformed or invalid", ex);
         }
     }
 
