@@ -23,7 +23,6 @@ public class DialogueTrigger : InteractableObject
         }
         
         // Trigger dialogue system (you'll need to implement this)
-        Debug.Log($"Starting dialogue with {npcName}");
         // DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
         
         hasTriggered = true;
@@ -33,8 +32,6 @@ public class DialogueTrigger : InteractableObject
             SetInteractable(false);
         }
     }
-    
-   
     
     public override bool CanInteract()
     {

@@ -37,7 +37,6 @@ public class BaseDoor : MonoBehaviour
     {
         // Use Time.time (seconds since startup) for cooldown checks.
         nextOpenTime = Time.time + doorCooldown;
-        Debug.Log($"BasementDoor: cooldown active for {doorCooldown}s, next open at {nextOpenTime:F2}");
     }
 
     private void Start()
@@ -52,18 +51,13 @@ public class BaseDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"BasementDoor: OnTriggerEnter2D with '{other.name}' (tag: {other.tag})");
-
         // Respect cooldown
         if (Time.time < nextOpenTime)
         {
-            Debug.Log($"BasementDoor: Door on cooldown. Next open at {nextOpenTime:F2}, current time {Time.time:F2}");
             return;
         }
-
         if (!other.CompareTag("Player"))
         {
-            Debug.Log("BasementDoor: Ignored - not Player tag.");
             return;
         }
 
@@ -92,8 +86,6 @@ public class BaseDoor : MonoBehaviour
                 $"BasementDoor: Scene '{sceneName}' not found in Build Settings and no valid build index override.");
             return;
         }
-
-        Debug.Log($"BasementDoor: Preparing to load scene '{(buildIndex >= 0 ? buildIndex.ToString() : targetScene)}'");
 
         // Apply cooldown immediately to avoid double-triggering before the scene changes.
         nextOpenTime = Time.time + doorCooldown;
@@ -174,39 +166,39 @@ public class BaseDoor : MonoBehaviour
 }
 
 
-private void MovePlayerToSpawn(Scene targetScene)
-{
-    
-    GameObject[] newSceneObjects = targetScene.GetRootGameObjects();
-    foreach (GameObject o in newSceneObjects)
+    private void MovePlayerToSpawn(Scene targetScene)
     {
-        if (o.gameObject.CompareTag("Player"))
+
+        GameObject[] newSceneObjects = targetScene.GetRootGameObjects();
+        foreach (GameObject o in newSceneObjects)
         {
-            nextScenePlayer = o;
+            if (o.gameObject.CompareTag("Player"))
+            {
+                nextScenePlayer = o;
+            }
         }
-    }
-    
-    if (nextScenePlayer == null)
-    {
-        Debug.LogWarning("MovePlayerToSpawn: No object with tag 'Player' found.");
-        return;
-    }
 
-    // Find all potential spawn points in the game
-    SceneSpawnPoint[] allSpawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
-
-    foreach (SceneSpawnPoint spawn in allSpawns)
-    {
-        // Check if this spawn point belongs to the scene we just loaded 
-        // AND matches the ID we are looking for
-        if (spawn.gameObject.scene == targetScene && spawn.SpawnPointID == targetSpawnID)
+        if (nextScenePlayer == null)
         {
-            nextScenePlayer.transform.position = spawn.transform.position;
-            nextScenePlayer.transform.rotation = spawn.transform.rotation;
+            Debug.LogWarning("MovePlayerToSpawn: No object with tag 'Player' found.");
             return;
         }
-    }
 
-    Debug.LogWarning($"MovePlayerToSpawn: Could not find SpawnPoint ID '{targetSpawnID}' in {targetScene.name}");
-}
+        // Find all potential spawn points in the game
+        SceneSpawnPoint[] allSpawns = Object.FindObjectsByType<SceneSpawnPoint>(FindObjectsSortMode.None);
+
+        foreach (SceneSpawnPoint spawn in allSpawns)
+        {
+            // Check if this spawn point belongs to the scene we just loaded 
+            // AND matches the ID we are looking for
+            if (spawn.gameObject.scene == targetScene && spawn.SpawnPointID == targetSpawnID)
+            {
+                nextScenePlayer.transform.position = spawn.transform.position;
+                nextScenePlayer.transform.rotation = spawn.transform.rotation;
+                return;
+            }
+        }
+
+        Debug.LogWarning($"MovePlayerToSpawn: Could not find SpawnPoint ID '{targetSpawnID}' in {targetScene.name}");
+    }
 }

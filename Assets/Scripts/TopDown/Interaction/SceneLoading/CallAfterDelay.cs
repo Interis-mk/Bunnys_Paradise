@@ -31,7 +31,6 @@ namespace TopDown.Interaction.SceneLoading
                 {
                     Debug.LogException(ex);
                 }
-
                 Destroy(gameObject);
             }
         }

@@ -44,12 +44,10 @@ public class DoorInteractable : InteractableObject
             }
             else
             {
-                Debug.Log("Door is locked!");
                 PlaySound(lockedSound);
                 return;
             }
         }
-        
         ToggleDoor();
     }
     
@@ -61,9 +59,7 @@ public class DoorInteractable : InteractableObject
         {
             doorAnimator.SetBool("IsOpen", isOpen);
         }
-        
         PlaySound(isOpen ? openSound : closeSound);
-        Debug.Log(isOpen ? "Door opened" : "Door closed");
     }
     
     private void PlaySound(AudioClip clip)
