@@ -1,6 +1,6 @@
-﻿# Copilot Instructions (1st–2nd Year Student Repository)
+# Copilot Instructions (1st–2nd Year Student Repository)
 
-These instructions define how GitHub Copilot (and other AI assistants) should generate changes in this repository so that the code is appropriate for **1st and 2nd year students** to read, review, and maintain.
+These instructions define how GitHub Copilot (and other AI assistants) should generate changes in this repository so that the code is appropriate for **1st–2nd Year students** to read, review, and maintain.
 
 ## 1) Audience & Goals
 
